@@ -1,5 +1,27 @@
 # bah
 ## bah is a set of simple, easy of use and styled components for React
+
+**npm install**
+```Console
+npm i --save "@rafacdb/bah"
+
+import {
+  LayoutAdmin,
+  Header,
+  Nav,
+  Article,
+  Footer,
+  Checkbox,
+  Radio,
+  Button,
+  Sidebar,
+  SidebarItem,
+  Input,
+  Tabs,
+  TabItem,
+} from '@rafacdb/bah';
+```
+
 https://bastiani.github.io/bah/
 
 ![](https://raw.githubusercontent.com/Bastiani/bah/master/docs/bah.gif)
