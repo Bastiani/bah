@@ -1,0 +1,29 @@
+{
+  "name": "bah",
+  "version": "0.1.0",
+  "description": "Components for React",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bastiani/bah.git"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "components",
+    "tabs",
+    "inputs",
+    "buttons",
+    "layout",
+    "theme"
+  ],
+  "author": "Rafael Campos de Bastiani <rafacdb@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bastiani/bah/issues"
+  },
+  "homepage": "https://github.com/Bastiani/bah#readme"
+}
