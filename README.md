@@ -2,7 +2,7 @@
 ## bah is a set of simple, easy of use and styled components for React
 https://bastiani.github.io/bah/
 
-![](https://raw.githubusercontent.com/Bastiani/bah/master/bah.gif)
+![](https://raw.githubusercontent.com/Bastiani/bah/master/docs/bah.gif)
 
 bah use [Styled-Components](https://www.styled-components.com)
 
