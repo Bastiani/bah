@@ -28,11 +28,11 @@ export const Nav = styled.nav`
   background: ${props => props.theme.bahColors.gray800};
   flex: 0 6 0;
   order: 1;
-  overflow: hidden;
+  ${props => (props.bahHidden ? 'overflow: hidden;' : '')};
   transition: flex-basis 500ms ease-in-out;
 
-  :hover {
-    flex-basis: 10em;
+  &:hover {
+    ${props => (props.bahHidden ? 'flex-basis: 10em;' : '')};
   }
 
   @media all and (max-width: 640px) {
