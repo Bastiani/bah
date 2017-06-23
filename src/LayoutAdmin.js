@@ -26,14 +26,16 @@ export const Article = styled.article`
 export const Nav = styled.nav`
   border-right: 16px #342 solid;
   background: ${props => props.theme.bahColors.gray800};
-  flex: 0 6 0;
   order: 1;
-  ${props => (props.bahHidden ? 'overflow: hidden;' : '')};
-  transition: flex-basis 500ms ease-in-out;
-
+  ${props => (props.bahHidden ? `
+  flex: 0 6 0;
+  overflow: hidden;
   &:hover {
-    ${props => (props.bahHidden ? 'flex-basis: 10em;' : '')};
+    flex-basis: 10em;
   }
+  ` : `flex: 0 6 ${props.theme.bahNavDefaultFlexBasis};`)};
+
+  transition: flex-basis 500ms ease-in-out;
 
   @media all and (max-width: 640px) {
     order: 0;

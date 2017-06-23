@@ -125,6 +125,8 @@ const theme = {
   bahFormInputDefaultPadding: '4px 8px',
   bahFormFieldsDefaultBorder: '4px',
 
+  bahNavDefaultFlexBasis: '16%',
+
   bahFontFamily: '"Roboto", Apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, sans-serif',
 };
 
