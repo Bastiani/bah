@@ -89,7 +89,7 @@ class App extends Component {
                   </Tabs>
                 </Switch>
               </Article>
-              <Nav>
+              <Nav bahHidden>
                 <Sidebar>
                   <SidebarItem>
                     <input type="checkbox" id="menu1" />
