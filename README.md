@@ -34,78 +34,13 @@ Any contribution is very appreciate! :wink:
 
 > **Examples:**
 
-**Buttons**
-
-```JSX
-<Button primary xlarge inline>primary</Button>
-<Button info xlarge inline>info</Button>
-<Button success xlarge inline>success</Button>
-<Button warning xlarge inline>warning</Button>
-<Button danger xlarge inline>danger</Button>
-<Button inverse xlarge inline>inverse</Button>
-<br />
-<Button primary large inline>primary</Button>
-<Button info large inline>info</Button>
-<Button success large inline>success</Button>
-<Button warning large inline>warning</Button>
-<Button danger large inline>danger</Button>
-<Button inverse large inline>inverse</Button>
-<br />
-<Button primary inline>primary</Button>
-<Button info inline>info</Button>
-<Button success inline>success</Button>
-<Button warning inline>warning</Button>
-<Button danger inline>danger</Button>
-<Button inverse inline>inverse</Button>
-<br />
-<Button primary small inline>primary</Button>
-<Button info small inline>info</Button>
-<Button success small inline>success</Button>
-<Button warning small inline>warning</Button>
-<Button danger small inline>danger</Button>
-<Button inverse small inline>inverse</Button>
-```
-**Inputs**
-```JSX
-<Input isInvalid id="teste1">Teste1</Input>
-<Input isValid id="teste4">Teste4</Input>
-<Input disabled id="teste5">Teste5</Input>
-```
-
-**Tabs (with react-router-dom)**
-```JSX
-const tabs = [
-  {
-    id: 1,
-    tabCaption: 'Home',
-    active: true,
-    get content() {
-      return (<Route exact path="/" component={Home} />);
-    },
-  },
-  {
-    id: 2,
-    tabCaption: 'Person',
-    get content() {
-      return (<Route exact path="/person" component={Person} />);
-    },
-  },
-];
-
-<Switch>
-  <Tabs tabs={tabs}>
-    <TabItem tabs={tabs} />
-  </Tabs>
-</Switch>
-```
-
 **Layout**
 ```JSX
 import React, { Component } from 'react';
 import { ThemeProvider, injectGlobal } from 'styled-components';
 import { Route, Switch, Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
-import theme from './bah/src/theme';
+import theme from '@rafacdb/bah/src/theme';
 import {
   LayoutAdmin,
   Header,
@@ -120,7 +55,7 @@ import {
   Input,
   Tabs,
   TabItem,
-} from './bah/src';
+} from '@rafacdb/bah';
 
 class App extends Component {
   render() {
@@ -188,4 +123,69 @@ class App extends Component {
     );
   }
 }
+```
+
+**Buttons**
+
+```JSX
+<Button primary xlarge inline>primary</Button>
+<Button info xlarge inline>info</Button>
+<Button success xlarge inline>success</Button>
+<Button warning xlarge inline>warning</Button>
+<Button danger xlarge inline>danger</Button>
+<Button inverse xlarge inline>inverse</Button>
+<br />
+<Button primary large inline>primary</Button>
+<Button info large inline>info</Button>
+<Button success large inline>success</Button>
+<Button warning large inline>warning</Button>
+<Button danger large inline>danger</Button>
+<Button inverse large inline>inverse</Button>
+<br />
+<Button primary inline>primary</Button>
+<Button info inline>info</Button>
+<Button success inline>success</Button>
+<Button warning inline>warning</Button>
+<Button danger inline>danger</Button>
+<Button inverse inline>inverse</Button>
+<br />
+<Button primary small inline>primary</Button>
+<Button info small inline>info</Button>
+<Button success small inline>success</Button>
+<Button warning small inline>warning</Button>
+<Button danger small inline>danger</Button>
+<Button inverse small inline>inverse</Button>
+```
+**Inputs**
+```JSX
+<Input isInvalid id="teste1">Teste1</Input>
+<Input isValid id="teste4">Teste4</Input>
+<Input disabled id="teste5">Teste5</Input>
+```
+
+**Tabs (with react-router-dom)**
+```JSX
+const tabs = [
+  {
+    id: 1,
+    tabCaption: 'Home',
+    active: true,
+    get content() {
+      return (<Route exact path="/" component={Home} />);
+    },
+  },
+  {
+    id: 2,
+    tabCaption: 'Person',
+    get content() {
+      return (<Route exact path="/person" component={Person} />);
+    },
+  },
+];
+
+<Switch>
+  <Tabs tabs={tabs}>
+    <TabItem tabs={tabs} />
+  </Tabs>
+</Switch>
 ```
