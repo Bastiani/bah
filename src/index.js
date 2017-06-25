@@ -11,6 +11,7 @@ import Radio from './Radio';
 import Button from './Button';
 import Input from './Input';
 import Tabs, { TabItem } from './Tab';
+/* import Table, { TableNum, TableRow, TableText, TableWrapper } from './Table';*/
 
 export {
   LayoutAdmin,
@@ -27,4 +28,9 @@ export {
   Input,
   Tabs,
   TabItem,
+  /* Table,
+  TableNum,
+  TableRow,
+  TableText,
+  TableWrapper,*/
 };

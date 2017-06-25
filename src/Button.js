@@ -41,93 +41,93 @@ i {
 &:active i {
   line-height: 40px;
 }
-${props => (props.primary || props.info || props.success || props.warning || props.danger || props.inverse ? `
+${props => (props.primary || props.info || props.success || props.warning || props.danger || props.inverse) && `
   -webkit-box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
-` : '')}
+`}
 
 &:hover,
 &:focus {
   background: #e6e6e6;
   color: #222;
 }
-${props => (props.primary ? `
+${props => props.primary && `
   background: #0088cc;
   color: #fafafa;
-` : '')}
+`}
 
-${props => (props.primary ? `
+${props => props.primary && `
 &:hover,
 &:focus {
   background: #006da3;
   color: #fafafa;
-}` : '')}
+}`}
 
-${props => (props.info ? `
+${props => props.info && `
   background: #49afcd;
   color: #fafafa;
-` : '')}
+`}
 
-${props => (props.info ? `
+${props => props.info && `
 &:hover,
 &:focus {
   background: #339bba;
   color: #fafafa;
 }
-` : '')}
+`}
 
-${props => (props.success ? `
+${props => props.success && `
   background: #5bb75b;
   color: #fafafa;
-` : '')}
+`}
 
-${props => (props.success ? `
+${props => props.success && `
 &:hover,
 &:focus {
   background: #47a247;
   color: #fafafa;
 }
-` : '')}
+`}
 
-${props => (props.warning ? `
+${props => props.warning && `
   background: #faa732;
   color: #fafafa;
-` : '')}
+`}
 
-${props => (props.warning ? `
+${props => props.warning && `
 &:hover,
 &:focus {
   background: #f9960a;
   color: #fafafa;
 }
-` : '')}
+`}
 
-${props => (props.danger ? `
+${props => props.danger && `
   background: #da4f49;
   color: #fafafa;
-` : '')}
+`}
 
-${props => (props.danger ? `
+${props => props.danger && `
 &:hover,
 &:focus {
   background: #d0312a;
   color: #fafafa;
 }
-` : '')}
+`}
 
-${props => (props.inverse ? `
+${props => props.inverse && `
   background: #363636;
   color: #fafafa;
-` : '')}
+`}
 
-${props => (props.inverse ? `
+${props => props.inverse && `
 &:hover,
 &:focus {
   background: #222222;
   color: #fafafa;
 }
-` : '')}
+`}
 
 span {
   pointer-events: none;
@@ -145,7 +145,7 @@ span {
   box-shadow: none !important;
 }
 
-${props => (props.small ? `
+${props => props.small && `
   height: 30px;
   padding: 0 10px;
   border-radius: 4px;
@@ -157,22 +157,22 @@ ${props => (props.small ? `
   i {
     line-height: 28px;
   }
-` : '')}
+`}
 
-${props => (props.small ? `
+${props => props.small && `
 &:active,
 &:active i {
   line-height: 30px;
 }
-` : '')}
+`}
 
-${props => (props.small && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse) ? `
+${props => (props.small && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse)) && `
   -webkit-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
-` : '')}
+`}
 
-${props => (props.large ? `
+${props => props.large && `
   height: 50px;
   padding: 0 18px;
   border-radius: 6px;
@@ -184,22 +184,22 @@ ${props => (props.large ? `
   i {
     line-height: 46px;
   }
-` : '')}
+`}
 
-${props => (props.large ? `
+${props => props.large && `
 &:active,
 &:active i {
   line-height: 50px;
 }
-` : '')}
+`}
 
-${props => (props.large && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse) ? `
+${props => (props.large && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse)) && `
   -webkit-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
-` : '')}
+`}
 
-${props => (props.xlarge ? `
+${props => props.xlarge && `
   height: 60px;
   padding: 0 22px;
   border-radius: 7px;
@@ -211,25 +211,25 @@ ${props => (props.xlarge ? `
   i {
     line-height: 55px;
   }
-` : '')}
+`}
 
-${props => (props.xlarge ? `
+${props => props.xlarge && `
 &:active,
 &:active i {
   line-height: 60px;
 }
-` : '')}
+`}
 
-${props => (props.xlarge && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse) ? `
+${props => (props.xlarge && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse)) && `
   -webkit-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
-` : '')}
+`}
 
-${props => (props.inline ? `
+${props => props.inline && `
   display: inline-block;
   vertical-align: middle;
-` : '')}
+`}
 `;
 
 export default Button;

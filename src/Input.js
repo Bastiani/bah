@@ -50,7 +50,7 @@ const InputStyled = styled(Input)`
       outline: 0;
     }
 
-    ${props => (props.isValid ? `
+    ${props => props.isValid && `
       box-shadow:inset 0 2px 3px ${props.theme.bahColors.green100};
       border-color: ${props.theme.bahColors.green300};
       outline: 0;
@@ -59,9 +59,9 @@ const InputStyled = styled(Input)`
         border-color: ${props.theme.bahColors.green400};
         outline: 0;
       }
-    ` : '')}
+    `}
 
-    ${props => (props.isInvalid ? `
+    ${props => props.isInvalid && `
       box-shadow:inset 0 2px 3px ${props.theme.bahColors.red100};
       border-color: ${props.theme.bahColors.red300};
       outline: 0;
@@ -70,7 +70,7 @@ const InputStyled = styled(Input)`
         border-color: ${props.theme.bahColors.red400};
         outline: 0;
       }
-    ` : '')}
+    `}
   }
 `;
 
