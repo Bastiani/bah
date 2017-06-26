@@ -103,6 +103,7 @@ const theme = {
   get bahDefaultTextColor() {
     return this.bahColors.bluegray700;
   },
+  /* Form Styles */
   get bahFormInputBorderColor() {
     return this.bahColors.steel600;
   },
@@ -124,6 +125,16 @@ const theme = {
   bahFormInputDefaultHeight: '24px',
   bahFormInputDefaultPadding: '4px 8px',
   bahFormFieldsDefaultBorder: '4px',
+  /* Table Styles */
+  get bahTableRowColor() {
+    return this.bahColors.steel200;
+  },
+  get bahTableHeaderColor() {
+    return this.bahColors.steel400;
+  },
+  get bahTableHeaderBorderColor() {
+    return this.bahColors.steel600;
+  },
 
   bahNavDefaultFlexBasis: '16%',
 

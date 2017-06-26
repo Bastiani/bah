@@ -55,6 +55,10 @@ import {
   Input,
   Tabs,
   TabItem,
+  Table,
+  TableHeader,
+  TableRow,
+  TableCol,
 } from '@rafacdb/bah';
 
 class App extends Component {
@@ -123,6 +127,19 @@ class App extends Component {
     );
   }
 }
+```
+
+```JSX
+  <Table>
+    <TableHeader>
+      <TableCol flexGrow={2}>Title 1</TableCol>
+      <TableCol flexGrow={6}>Title 2</TableCol>
+    </TableHeader>
+    <TableRow key={1}>
+      <TableCol flexGrow={2}>Data 1</TableCol>
+      <TableCol flexGrow={6}>Data 2</TableCol>
+    </TableRow>
+  </Table>
 ```
 
 **Buttons**
