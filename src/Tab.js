@@ -69,7 +69,7 @@ const Tabs = styled.div`
 }
 .flex-tabs .panel {
   background-color: #E5E9F2;
-  padding: 20px;
+  padding: 2px;
   min-height: 300px;
   display: none;
   width: 100%;

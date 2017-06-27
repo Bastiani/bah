@@ -19,6 +19,12 @@ import {
   Input,
   Tabs,
   TabItem,
+  Table,
+  TableHeader,
+  TableRow,
+  TableCol,
+  Form,
+  FormFields,
 } from '@rafacdb/bah';
 ```
 
@@ -53,6 +59,7 @@ import {
   Sidebar,
   SidebarItem,
   Input,
+  InputRedux,
   Tabs,
   TabItem,
   Table,
@@ -128,7 +135,7 @@ class App extends Component {
   }
 }
 ```
-
+**Table**
 ```JSX
   <Table>
     <TableHeader>
@@ -143,7 +150,6 @@ class App extends Component {
 ```
 
 **Buttons**
-
 ```JSX
 <Button primary xlarge inline>primary</Button>
 <Button info xlarge inline>info</Button>
@@ -175,9 +181,34 @@ class App extends Component {
 ```
 **Inputs**
 ```JSX
-<Input isInvalid id="teste1">Teste1</Input>
-<Input isValid id="teste4">Teste4</Input>
-<Input disabled id="teste5">Teste5</Input>
+<Input isInvalid name="teste1">Teste1</Input>
+<Input isValid name="teste4">Teste4</Input>
+<Input disabled name="teste5">Teste5</Input>
+```
+**Input Redux (ReduxForm)**
+```JSX
+<Form>
+  <FormFields>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <Field component={InputRedux} name="title" label="Título" />
+        <Field component={InputRedux} name="body" label="Body" />
+        <Button primary inline type="submit">Salvar</Button>
+      </div>
+    </form>
+  </FormFields>
+</Form>
+```
+
+**Form**
+```JSX
+<Form>
+  <FormFields>
+    <Input isInvalid name="teste1">Teste1</Input>
+    <Input isValid name="teste4">Teste4</Input>
+    <Input disabled name="teste5">Teste5</Input>
+  </FormFields>
+</Form>
 ```
 
 **Tabs (with react-router-dom)**

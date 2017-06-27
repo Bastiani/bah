@@ -1,7 +1,7 @@
 /* Buttons pen from https://codepen.io/valentin/pen/kahKl */
 import styled from 'styled-components';
 
-const Button = styled.a.attrs({
+const Button = styled.button.attrs({
   className: props => (props.disabled && 'disabled') || '',
 })`
   display: block;
@@ -166,7 +166,7 @@ ${props => props.small && `
 }
 `}
 
-${props => (props.small && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse)) && `
+${props => props.small && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse) && `
   -webkit-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
@@ -193,7 +193,7 @@ ${props => props.large && `
 }
 `}
 
-${props => (props.large && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse)) && `
+${props => props.large && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse) && `
   -webkit-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
@@ -220,7 +220,7 @@ ${props => props.xlarge && `
 }
 `}
 
-${props => (props.xlarge && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse)) && `
+${props => props.xlarge && (props.primary || props.info || props.success || props.warning || props.danger || props.inverse) && `
   -webkit-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);

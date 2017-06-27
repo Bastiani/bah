@@ -2,30 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Input = ({ children, id, type, className, disabled }) => (
-  <div className={className}>
-    <label htmlFor={id}>{children}</label>
-    <input disabled={disabled} type={type} id={id} />
-  </div>
-);
-
-Input.defaultProps = {
-  children: '',
-  id: '',
-  type: 'text',
-  className: '',
-  disabled: false,
-};
-
-Input.propTypes = {
-  children: PropTypes.node.isRequired,
-  id: PropTypes.string,
-  type: PropTypes.string,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-};
-
-const InputStyled = styled(Input)`
+const InputStyled = styled.div`
   input {
     appearance: none;
     background-color: ${props => props.theme.bahFormInputBackgroundColor};
@@ -74,4 +51,58 @@ const InputStyled = styled(Input)`
   }
 `;
 
-export default InputStyled;
+const Input = ({ children, name, type, disabled, ...props }) => (
+  <InputStyled>
+    <label htmlFor={name}>{children}</label>
+    <input {...props} disabled={disabled} type={type} name={name} />
+  </InputStyled>
+);
+
+export const InputRedux = ({ disabled, ...props }) => (
+  <InputStyled>
+    <label htmlFor={props.input.name}>{props.label}</label>
+    <input
+      {...props.input}
+      placeholder={props.placeholder}
+      readOnly={props.readOnly}
+      type={props.type}
+      disabled={disabled}
+    />
+  </InputStyled>
+);
+
+Input.defaultProps = {
+  children: '',
+  name: '',
+  type: 'text',
+  disabled: false,
+};
+
+Input.propTypes = {
+  children: PropTypes.node.isRequired,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+};
+
+InputRedux.defaultProps = {
+  name: '',
+  label: '',
+  input: {},
+  placeholder: '',
+  type: 'text',
+  readOnly: false,
+  disabled: false,
+};
+
+InputRedux.propTypes = {
+  name: PropTypes.string,
+  label: PropTypes.string,
+  input: PropTypes.object,
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
+  readOnly: PropTypes.bool,
+  disabled: PropTypes.bool,
+};
+
+export default Input;
