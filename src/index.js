@@ -10,7 +10,7 @@ import Checkbox from './Checkbox';
 import Radio from './Radio';
 import Button from './Button';
 import Input, { InputRedux } from './Input';
-import Tabs, { TabItem } from './Tab';
+import Tab from './Tab';
 import Table, { TableHeader, TableRow, TableCol } from './Table';
 import Form, { FormFields } from './Form';
 
@@ -28,8 +28,7 @@ export {
   SidebarItem,
   Input,
   InputRedux,
-  Tabs,
-  TabItem,
+  Tab,
   Table,
   TableHeader,
   TableRow,

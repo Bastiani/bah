@@ -45,12 +45,12 @@ const TabStyle = styled.div`
 ${(props) => {
   const tabs = props.tabs || [];
   return tabs.map(value => `
-    #${value.id}:checked ~ .tabs #${value.id}-label {
+    #tab-${value.id}:checked ~ .tabs #tab-${value.id}-label {
       background-color: #fff;
       cursor: default;
       border-left-color: #69be28;
     }
-    #${value.id}:checked ~ .tabs #${value.id}-panel {
+    #tab-${value.id}:checked ~ .tabs #tab-${value.id}-panel {
       display: block;
     }
   `);
@@ -72,12 +72,12 @@ ${(props) => {
     return tabs.map((value, index) => {
       if (Math.abs((index + 1) % 2) === 1) {
         return `
-          .flex-tabs #${value.id}-label {
+          .flex-tabs #tab-${value.id}-label {
             order: ${index + 1};
           }`;
       }
       return `
-        .flex-tabs #${value.id}-panel {
+        .flex-tabs #tab-${value.id}-panel {
           order: ${index + 1};
         }`;
     });
@@ -86,10 +86,10 @@ ${(props) => {
   ${(props) => {
     const tabs = props.tabs || [];
     return tabs.map(value => `
-    #${value.id}:checked ~ .tabs #${value.id}-label {
+    #tab-${value.id}:checked ~ .tabs #tab-${value.id}-label {
       border-bottom: none;
     }
-    #${value.id}:checked ~ .tabs #${value.id}-panel {
+    #tab-${value.id}:checked ~ .tabs #tab-${value.id}-panel {
       border-bottom: 1px solid #ccc;
     }`);
   }}
@@ -99,21 +99,47 @@ ${(props) => {
 class Tab extends Component {
   constructor(props) {
     super(props);
-    // const tabActive = this.props.tabs.filter(value => value.active === true)[0].id;
+    const tabActive = this.props.tabs.filter(value => value.active === true)[0]
+      .id;
+    this.state = {
+      checked: this.props.selected || `tab-${tabActive}`,
+    };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.renderInputs = this.renderInputs.bind(this);
     this.renderLabels = this.renderLabels.bind(this);
   }
 
-  setRadioChecked(value) {
-    const selected = this.props.selected ||
-      this.props.tabs.filter(value => value.active === true)[0].id;
-
-    return selected === value.id;
+  handleInputChange(event) {
+    const target = event.target;
+    this.props.selectTab(target.id);
+    // console.log(this.props.selected);
+    this.setState({
+      checked: target.id,
+    });
   }
 
-  handleInputChange(event) {
-    this.props.selectTab(event.target.id);
+  setRadioChecked(value) {
+    /* console.log(
+      this.state.checked === `tab-${this.props.selected}`,
+    );
+    console.log(`${this.state.checked} -> tab-${this.props.selected}`);
+    console.log(`${this.state.checked} === tab-${value.id}`);*/
+    /* console.log(
+      (this.state.checked === `tab-${this.props.selected}` && this.state.checked === `tab-${value.id}`) ||
+      (this.state.checked === `tab-${value.id}`),
+      this.props.selected,
+    );
+    return (
+      (this.state.checked === `tab-${this.props.selected}` && this.state.checked === `tab-${value.id}`) ||
+      (this.state.checked === `tab-${value.id}`)
+    );*/
+    /* console.log(this.state.checked === this.props.selected);
+    console.log(`${this.state.checked} === ${this.props.selected}`);*/
+    const selected = this.props.selected !== `tab-${this.props.selected}`
+      ? `tab-${this.props.selected}`
+      : this.props.selected;
+    console.log(selected);
+    return selected === `tab-${value.id}`;
   }
 
   renderInputs() {
@@ -121,12 +147,12 @@ class Tab extends Component {
     return tabs.map(value => (
       <If key={`if-input-${value.id}`} test={value.visible}>
         <input
-          key={value.id}
+          key={`tab-${value.id}`}
           className="state"
           type="radio"
-          title={value.id}
+          title={`tab-${value.id}`}
           name="tabs-state"
-          id={value.id}
+          id={`tab-${value.id}`}
           checked={this.setRadioChecked(value)}
           onChange={this.handleInputChange}
         />
@@ -140,8 +166,8 @@ class Tab extends Component {
       <If key={`if-label-${value.id}`} test={value.visible}>
         <label
           key={`label-${value.id}`}
-          htmlFor={value.id}
-          id={`${value.id}-label`}
+          htmlFor={`tab-${value.id}`}
+          id={`tab-${value.id}-label`}
           className="tab"
         >
           {value.tabCaption}
@@ -162,10 +188,10 @@ class Tab extends Component {
         <div className="tabs flex-tabs">
           {this.renderLabels()}
           {tabs.map(value => (
-            <If key={`if-panel-${value.id}`} test={value.visible}>
+            <If key={`if-tab-${value.id}`} test={value.visible}>
               <div
-                key={`panel-${value.id}`}
-                id={`${value.id}-panel`}
+                key={`tab-${value.id}`}
+                id={`tab-${value.id}-panel`}
                 className="flex-tabs panel active"
               >
                 {value.content}

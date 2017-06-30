@@ -40,6 +40,8 @@ Easy style all components, edit **theme.js** and change all styles
 
 Any contribution is very appreciate! :wink:
 
+**Need <ThemeProvider theme={theme}> for correct render of components**
+
 > **Examples:**
 
 **Layout**
@@ -220,6 +222,7 @@ const tabs = [
     id: 1,
     tabCaption: 'Home',
     active: true,
+    visible: true,
     get content() {
       return (<Route exact path="/" component={Home} />);
     },
@@ -227,6 +230,7 @@ const tabs = [
   {
     id: 2,
     tabCaption: 'Person',
+    visible: false,
     get content() {
       return (<Route exact path="/person" component={Person} />);
     },
@@ -234,8 +238,79 @@ const tabs = [
 ];
 
 <Switch>
-  <Tabs tabs={tabs}>
-    <TabItem tabs={tabs} />
-  </Tabs>
+  <Tab tabs={tabs} />
 </Switch>
+```
+**Tabs (with Redux integrated)**
+```JSX
+/* page.js */
+import { init, create } from './pageActions';
+
+function TabsList(props) {
+  const tabs = [
+    {
+      id: 'lista',
+      tabCaption: 'Lista de Páginas',
+      active: true,
+      visible: true,
+      get content() {
+        return <List />;
+      },
+    },
+    {
+      id: 'incluir',
+      tabCaption: 'Incluir',
+      visible: true,
+      get content() {
+        return <Form onSubmit={props.create} />;
+      },
+    },
+    {
+      id: 'editar',
+      tabCaption: 'Editar',
+      visible: false,
+      get content() {
+        return '';
+      },
+    },
+  ];
+  return tabs;
+}
+
+class Page extends Component {
+  componentWillMount() {
+    this.props.init();
+  }
+  render() {
+    return (
+      <div>
+        <Tab tabs={TabsList(this.props)} />
+      </div>
+    );
+  }
+}
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      init,
+      create,
+    },
+    dispatch,
+  );
+export default connect(null, mapDispatchToProps)(Page);
+
+/* in pageActions.js */
+import { selectTab, showTabs } from '@rafacdb/bah/src/tabActions';
+
+export function init() {
+  return [showTabs('lista', 'incluir'), selectTab('lista'), getList()];
+}
+
+/* combine reducers */
+import TabReducer from '../bah/src/tabReducer';
+
+const rootReducer = combineReducers({
+  tab: TabReducer,
+});
 ```
