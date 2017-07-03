@@ -13,6 +13,7 @@ import Input, { InputRedux } from './Input';
 import Tab from './Tab';
 import Table, { TableHeader, TableRow, TableCol } from './Table';
 import Form, { FormFields } from './Form';
+import Paginate from './Paginate';
 
 export {
   LayoutAdmin,
@@ -35,4 +36,5 @@ export {
   TableCol,
   Form,
   FormFields,
+  Paginate,
 };
