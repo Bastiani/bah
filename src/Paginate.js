@@ -5,14 +5,14 @@ import styled from 'styled-components';
 
 const PaginateStyled = styled.ul`
 display: flex;
-flex-wrap: wrap;
+flex-wrap: nowrap;
 justify-content: center;
 align-items: center;
 list-style-type: none;
 
 li a {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
 }
