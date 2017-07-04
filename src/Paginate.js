@@ -145,50 +145,78 @@ class Paginate extends Component {
     this.state = { linkId: 0, linkActive: false };
 
     this.handleClick = (id, skip) => () => {
-      this.props.func(this.props.perPage, skip);
-      this.setState({ linkId: id, linkActive: true });
+      let newSkip;
+      if (id === 'Previous') {
+        newSkip = this.state.skip !== 0
+          ? this.state.skip - this.props.perPage
+          : this.state.skip;
+      } else {
+        newSkip = skip;
+      }
+      this.props.func(this.props.perPage, newSkip);
+      this.setState({ linkId: id, linkActive: true, skip: newSkip });
     };
+
+    this.buttonPages = value => (
+      <li
+        key={`li-${value.id}`}
+        className={
+          this.state.linkId === value.id &&
+            this.state.linkActive &&
+            value.id !== 'Previous'
+            ? 'current'
+            : ''
+        }
+      >
+        <a href="#" onClick={this.handleClick(value.id, value.skip)}>
+          <span>{value.id}</span>
+        </a>
+      </li>
+    );
 
     this.generatePageLinks = () => {
       let pagesCount = this.props.count / this.props.perPage;
-      if (this.props.count % this.props.perPage === 1) pagesCount += 1;
+      if (this.props.count % this.props.perPage === 1) {
+        pagesCount = Math.round(pagesCount);
+      }
       const links = [];
       let skip = 0;
 
       for (let i = 1; i <= pagesCount; i++) {
-        links.push({ id: i, skip });
+        if (i === 1) {
+          links.push({ id: 'First', skip, pages: pagesCount });
+          links.push({
+            id: 'Previous',
+            skip,
+            pages: pagesCount,
+          });
+        }
+
+        links.push({ id: i, skip, pages: pagesCount });
+
+        if (i === pagesCount) {
+          links.push({ id: 'Next', skip, pages: pagesCount });
+          links.push({
+            id: 'Last',
+            skip,
+            pages: pagesCount,
+          });
+        }
         skip += this.props.perPage;
       }
 
-      return links.map(value => (
-        <li
-          key={value.id}
-          className={
-            this.state.linkId === value.id && this.state.linkActive
-              ? 'current'
-              : ''
-          }
-        >
-          <a href="#" onClick={this.handleClick(value.id, value.skip)}>
-            {value.id}
-          </a>
-        </li>
-      ));
+      return links.map(value => this.buttonPages(value));
     };
   }
 
   render() {
     return (
       <PaginateStyled key={'paginate'}>
-        <li><a href=""><span>First</span></a></li>
-        <li><a href=""><span>Previous</span></a></li>
         {this.generatePageLinks(
           this.props.count,
           this.props.perPage,
           this.props.func,
         )}
-        <li><a href=""><span>Next</span></a></li>
-        <li><a href=""><span>Last</span></a></li>
       </PaginateStyled>
     );
   }
