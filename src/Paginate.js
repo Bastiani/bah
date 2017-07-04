@@ -144,8 +144,8 @@ class Paginate extends Component {
     super(props);
     this.state = { linkId: 0, linkActive: false };
 
-    this.handleClick = (id, skip) => {
-      // this.props.func(this.props.perPage, skip);
+    this.handleClick = (id, skip) => () => {
+      this.props.func(this.props.perPage, skip);
       this.setState({ linkId: id, linkActive: true });
     };
 
