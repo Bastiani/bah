@@ -143,39 +143,38 @@ class Paginate extends Component {
   constructor(props) {
     super(props);
     this.state = { linkId: 0, linkActive: false };
-  }
 
-  generatePageLinks() {
-    let pagesCount = this.props.cont / this.props.perPage;
-    if (this.props.cont % this.props.perPage === 1) pagesCount += 1;
-    const links = [];
-    let skip = 0;
+    this.handleClick = (id, skip) => {
+      // this.props.func(this.props.perPage, skip);
+      this.setState({ linkId: id, linkActive: true });
+    };
 
-    for (let i = 1; i <= pagesCount; i++) {
-      links.push({ id: i, skip });
-      skip += this.props.perPage;
-    }
+    this.generatePageLinks = () => {
+      let pagesCount = this.props.count / this.props.perPage;
+      if (this.props.count % this.props.perPage === 1) pagesCount += 1;
+      const links = [];
+      let skip = 0;
 
-    return links.map(value => (
-      <li
-        key={value.id}
-        className={
-          this.state.linkId === value.id && this.state.linkActive
-            ? 'current'
-            : ''
-        }
-      >
-        <a
-          href="#"
-          onClick={() => {
-            this.props.func(this.props.perPage, value.skip);
-            this.setState({ linkId: value.id, linkActive: true });
-          }}
+      for (let i = 1; i <= pagesCount; i++) {
+        links.push({ id: i, skip });
+        skip += this.props.perPage;
+      }
+
+      return links.map(value => (
+        <li
+          key={value.id}
+          className={
+            this.state.linkId === value.id && this.state.linkActive
+              ? 'current'
+              : ''
+          }
         >
-          {value.id}
-        </a>
-      </li>
-    ));
+          <a href="#" onClick={this.handleClick(value.id, value.skip)}>
+            {value.id}
+          </a>
+        </li>
+      ));
+    };
   }
 
   render() {
@@ -184,7 +183,7 @@ class Paginate extends Component {
         <li><a href=""><span>First</span></a></li>
         <li><a href=""><span>Previous</span></a></li>
         {this.generatePageLinks(
-          this.props.cont,
+          this.props.count,
           this.props.perPage,
           this.props.func,
         )}
@@ -196,13 +195,13 @@ class Paginate extends Component {
 }
 
 Paginate.defaultProps = {
-  cont: 0,
+  count: 0,
   perPage: 5,
   func: {},
 };
 
 Paginate.propTypes = {
-  cont: PropTypes.number,
+  count: PropTypes.number,
   perPage: PropTypes.number,
   func: PropTypes.func,
 };
