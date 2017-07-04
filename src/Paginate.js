@@ -142,7 +142,7 @@ li.current a {
 class Paginate extends Component {
   constructor(props) {
     super(props);
-    this.state = { linkId: 0, linkActive: false };
+    this.state = { linkId: 0, linkActive: false, skip: 0 };
 
     this.handleClick = (id, skip) => () => {
       let newSkip;
@@ -150,6 +150,16 @@ class Paginate extends Component {
         newSkip = this.state.skip !== 0
           ? this.state.skip - this.props.perPage
           : this.state.skip;
+      } else if (id === 'Next') {
+        newSkip = (
+          this.state.skip <= this.props.count &&
+          this.state.skip + this.props.perPage < this.props.count) ?
+          this.state.skip + this.props.perPage
+          : this.state.skip;
+      } else if (id === 'First') {
+        newSkip = 0;
+      } else if (id === 'Last') {
+        newSkip = this.props.count - this.props.perPage;
       } else {
         newSkip = skip;
       }
@@ -163,7 +173,10 @@ class Paginate extends Component {
         className={
           this.state.linkId === value.id &&
             this.state.linkActive &&
-            value.id !== 'Previous'
+            value.id !== 'First' &&
+            value.id !== 'Previous' &&
+            value.id !== 'Next' &&
+            value.id !== 'Last'
             ? 'current'
             : ''
         }
