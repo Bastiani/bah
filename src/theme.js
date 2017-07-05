@@ -135,10 +135,14 @@ const theme = {
   get bahTableHeaderBorderColor() {
     return this.bahColors.steel600;
   },
+  get bahPaginateBackgroundColor() {
+    return this.bahColors.blue700;
+  },
 
   bahNavDefaultFlexBasis: '16%',
 
-  bahFontFamily: '"Roboto", Apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, sans-serif',
+  bahFontFamily:
+    '"Roboto", Apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, sans-serif',
 };
 
 export default theme;
