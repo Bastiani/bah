@@ -317,11 +317,12 @@ const rootReducer = combineReducers({
 ```
 
 ![](https://raw.githubusercontent.com/Bastiani/bah/master/docs/bah_paginate.gif)
+
 **Paginate**
 ```JSX
 <Paginate count={this.props.count} perPage={5} func={this.props.getList} />
 ```
-***count*** receive a total of registres
+***count*** receive a total of registers
 ***perPage*** receive total of registres of the page show
 ***func*** receive function, this function need receive two parameters, limit and skip
 
