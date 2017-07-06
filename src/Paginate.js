@@ -178,27 +178,26 @@ class Paginate extends Component {
     this.handleClick = (id, pSkip, pages) => () => {
       let newSkip;
       const { start, end, skip } = this.state;
+      const { perPage, count, func } = this.props;
+
       if (id === 'Previous') {
-        newSkip = skip !== 0 ? skip - this.props.perPage : skip;
+        newSkip = skip !== 0 ? skip - perPage : skip;
       } else if (id === 'Next') {
-        newSkip =
-          skip <= this.props.count && skip + this.props.perPage < this.props.count
-            ? skip + this.props.perPage
-            : skip;
+        newSkip = skip <= count && skip + perPage < count ? skip + perPage : skip;
       } else if (id === 'First') {
         newSkip = 0;
         if (start - 3 < pages && start !== 3) {
           this.setState({ start: start - 10, end: end - 10 });
         }
       } else if (id === 'Last') {
-        newSkip = this.props.count - this.props.perPage;
+        newSkip = count - perPage;
         if (end - 2 < pages) {
           this.setState({ start: start + 10, end: end + 10 });
         }
       } else {
         newSkip = pSkip;
       }
-      this.props.func(this.props.perPage, newSkip);
+      func(perPage, newSkip);
       this.setState({ linkId: id, linkActive: true, skip: newSkip });
     };
 
@@ -225,9 +224,8 @@ class Paginate extends Component {
 
     this.generatePageLinks = () => {
       let pagesCount = this.props.count / this.props.perPage;
-      if (this.props.count % this.props.perPage === 1) {
-        pagesCount = Math.round(pagesCount);
-      }
+      pagesCount = Math.ceil(pagesCount);
+
       const links = [];
       let skip = 0;
 
@@ -261,7 +259,7 @@ class Paginate extends Component {
   render() {
     return (
       <PaginateStyled start={this.state.start} end={this.state.end}>
-        {this.generatePageLinks(this.props.count, this.props.perPage, this.props.func)}
+        {this.generatePageLinks()}
       </PaginateStyled>
     );
   }

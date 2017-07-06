@@ -27,6 +27,7 @@ import {
   TableCol,
   Form,
   FormFields,
+  Paginate,
 } from '@rafacdb/bah';
 ```
 
@@ -313,4 +314,86 @@ import TabReducer from '../bah/src/tabReducer';
 const rootReducer = combineReducers({
   tab: TabReducer,
 });
+```
+
+![](https://raw.githubusercontent.com/Bastiani/bah/master/docs/bah_paginate.gif)
+**Paginate**
+```JSX
+<Paginate count={this.props.count} perPage={5} func={this.props.getList} />
+```
+***count*** receive a total of registres
+***perPage*** receive total of registres of the page show
+***func*** receive function, this function need receive two parameters, limit and skip
+
+**Paginate example**
+```JSX
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { getList, getListCount } from './pageActions';
+
+import { Table, TableHeader, TableRow, TableCol, Paginate } from '../bah/src';
+
+class PageList extends Component {
+  componentDidMount() {
+    this.props.getListCount();
+    this.props.getList(5, 0);
+  }
+
+  renderRows() {
+    const list = this.props.list || [];
+    return list.map(bc =>
+      (<TableRow key={bc._id}>
+        <TableCol flexGrow={2}>
+          {bc.title}
+        </TableCol>
+        <TableCol flexGrow={6}>
+          {bc.body}
+        </TableCol>
+        <TableCol flexGrow={6}>ações</TableCol>
+      </TableRow>),
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <Table>
+          <TableHeader>
+            <TableCol flexGrow={2}>Titulo</TableCol>
+            <TableCol flexGrow={6}>Corpo da Página</TableCol>
+            <TableCol flexGrow={6}>Ações</TableCol>
+          </TableHeader>
+          {this.renderRows()}
+          <Paginate count={this.props.count} perPage={5} func={this.props.getList} />
+        </Table>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  list: state.page.list,
+  count: state.page.count,
+});
+const mapDispatchToProps = dispatch => bindActionCreators({ getList, getListCount }, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(PageList);
+```
+***Action example (getList)***
+```JSX
+export function getList(limit, skip) {
+  let request;
+  if (limit && skip !== 0) {
+    request = axios.get(`${BASE_URL}/pages/?sort=_id&limit=${limit}&skip=${skip}`);
+  } else if (limit) {
+    request = axios.get(`${BASE_URL}/pages/?sort=_id&limit=${limit}`);
+  } else {
+    request = axios.get(`${BASE_URL}/pages/?sort=_id`);
+  }
+
+  return {
+    type: 'PAGES_FETCHED',
+    payload: request,
+  };
+}
 ```
