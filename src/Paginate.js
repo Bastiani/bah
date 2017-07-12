@@ -1,5 +1,5 @@
 /* Paginate on pen https://codepen.io/rafacdb/pen/mwxwQa */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -170,54 +170,54 @@ const PaginateStyled = styled.ul`
   }
 `;
 
-class Paginate extends Component {
+class Paginate extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { linkId: 0, linkActive: false, skip: 0, start: 3, end: 12 };
 
-    this.handleClick = (id, pSkip, pages) => () => {
+    this.handleClick = link => () => {
       let newSkip;
       const { start, end, skip } = this.state;
       const { perPage, count, func } = this.props;
 
-      if (id === 'Previous') {
+      if (link.id === 'Previous') {
         newSkip = skip !== 0 ? skip - perPage : skip;
-      } else if (id === 'Next') {
+      } else if (link.id === 'Next') {
         newSkip = skip <= count && skip + perPage < count ? skip + perPage : skip;
-      } else if (id === 'First') {
+      } else if (link.id === 'First') {
         newSkip = 0;
-        if (start - 3 < pages && start !== 3) {
+        if (start - 3 < link.pages && start !== 3) {
           this.setState({ start: start - 10, end: end - 10 });
         }
-      } else if (id === 'Last') {
-        newSkip = count - perPage;
-        if (end - 2 < pages) {
+      } else if (link.id === 'Last') {
+        newSkip = link.skip;
+        if (end - 2 < link.pages) {
           this.setState({ start: start + 10, end: end + 10 });
         }
       } else {
-        newSkip = pSkip;
+        newSkip = link.skip;
       }
       func(perPage, newSkip);
-      this.setState({ linkId: id, linkActive: true, skip: newSkip });
+      this.setState({ linkId: link.id, linkActive: true, skip: newSkip });
     };
 
-    this.buttonPages = value =>
+    this.buttonPages = link =>
       (<li
-        key={`li-${value.id}`}
+        key={`li-${link.id}`}
         className={
-          this.state.linkId === value.id &&
+          this.state.linkId === link.id &&
           this.state.linkActive &&
-          value.id !== 'First' &&
-          value.id !== 'Previous' &&
-          value.id !== 'Next' &&
-          value.id !== 'Last'
+          link.id !== 'First' &&
+          link.id !== 'Previous' &&
+          link.id !== 'Next' &&
+          link.id !== 'Last'
             ? 'current'
             : ''
         }
       >
-        <a href="#" onClick={this.handleClick(value.id, value.skip, value.pages)}>
+        <a href="#" onClick={this.handleClick(link)}>
           <span>
-            {value.id}
+            {link.id}
           </span>
         </a>
       </li>);
@@ -252,7 +252,7 @@ class Paginate extends Component {
         skip += this.props.perPage;
       }
 
-      return links.map(value => this.buttonPages(value));
+      return links.map(link => this.buttonPages(link));
     };
   }
 
