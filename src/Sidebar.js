@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const Sidebar = styled.div`
-  background-color: #222;
+  background-color: ${props => props.theme.bahSidebarBgColor};
   overflow: hidden;
   height: auto;
   font-family: ${props => props.theme.bahFontFamily};
-  font-size: 12px;
+  font-size: ${props => props.theme.bahSidebarFonteSize};
 `;
 
 export const SidebarItem = styled.div`
@@ -15,14 +15,15 @@ export const SidebarItem = styled.div`
   label {
     display: block;
     padding: 10px;
-    background: #1e1e1e;
-    font-size: 20px;
+    background: ${props => props.theme.bahSidebarItemLabelBgColor};
+    font-size: ${props => props.theme.bahSidebarItemLabelFonteSize};
     cursor: pointer;
-    color: #fff;
-    border-bottom: 2px solid #3fa338;
+    color: ${props => props.theme.bahSidebarItemLabelTextColor};
+    border-bottom: ${props => props.theme.bahSidebarItemLabelBorderSize} solid
+      ${props => props.theme.bahSidebarItemLabelBorderColor};
   }
   label:hover {
-    background-color: #3fa338;
+    background-color: ${props => props.theme.bahSidebarItemLabelHoverBgColor};
   }
   ul {
     width: 100%;
@@ -37,14 +38,15 @@ export const SidebarItem = styled.div`
     padding: 10px;
     display: block;
     text-decoration: none;
-    background-color: #ffffff;
-    color: #333;
-    border-bottom: solid 2px #aaa;
+    background-color: ${props => props.theme.bahSidebarItemUlBgColor};
+    color: ${props => props.theme.bahSidebarItemUlTextColor};
+    border-bottom: solid ${props => props.theme.bahSidebarItemUlBorderSize}
+      ${props => props.theme.bahSidebarItemUlBorderColor};
   }
   ul li a:hover {
-    background-color: #F5F5F5;
+    background-color: ${props => props.theme.bahSidebarItemUlHoverBgColor};
   }
-  input:checked~ul {
+  input:checked ~ ul {
     height: auto;
     max-height: 200px;
     transform: all;

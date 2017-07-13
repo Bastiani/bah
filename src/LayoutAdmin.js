@@ -14,7 +14,7 @@ const LayoutAdmin = styled.div`
 
 export const Article = styled.article`
   padding: 5px;
-  background: ${props => props.theme.bahColors.gray100};
+  background: ${props => props.theme.bahLayoutArticleBackgroundColor};
   flex: 3 1 60%;
   order: 2;
 
@@ -24,16 +24,18 @@ export const Article = styled.article`
 `;
 
 export const Nav = styled.nav`
-  border-right: 16px #342 solid;
-  background: ${props => props.theme.bahColors.gray800};
+  border-right: 16px ${props => props.theme.bahLayoutNavBoderRightColor} solid;
+  background: ${props => props.theme.bahLayoutNavBackgroundColor};
   order: 1;
-  ${props => (props.bahHidden ? `
-    flex: 0 6 0;
-    overflow: hidden;
-    &:hover {
-      flex-basis: 10em;
-    }
-  ` : `flex: 0 6 ${props.theme.bahNavDefaultFlexBasis};`)};
+  ${props =>
+    props.bahHidden
+      ? `flex: 0 6 0;
+        overflow: hidden;
+        &:hover {
+          flex-basis: 10em;
+        }
+      `
+      : `flex: 0 6 ${props.theme.bahNavDefaultFlexBasis};`};
 
   transition: flex-basis 500ms ease-in-out;
 
@@ -46,7 +48,7 @@ export const Nav = styled.nav`
 
 export const Aside = styled.aside`
   padding: 5px;
-  background: ${props => props.theme.bahColors.gray600};
+  background: ${props => props.theme.bahLayoutAsideBackgroundColor};
   flex: 1 6 20%;
   order: 3;
 
@@ -61,11 +63,11 @@ export const Header = styled.div`
   display: block;
   padding: 5px;
   min-height: 40px;
-  background: ${props => props.theme.bahColors.gray400};
+  background: ${props => props.theme.bahLayoutHeaderBackgroundColor};
 `;
 
 export const Footer = Header.extend`
-  background: ${props => props.theme.bahColors.gray500};
+  background: ${props => props.theme.bahLayoutFooterBackgroundColor};
 `;
 
 export default LayoutAdmin;

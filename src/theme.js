@@ -1,6 +1,7 @@
 const theme = {
   bahColors: {
     white1: '#ffffff',
+    white2: '#efefef',
     black1: '#000000',
     bluebrand: '#0060aa',
 
@@ -99,9 +100,18 @@ const theme = {
     steel700: '#3C4858',
     steel800: '#273444',
     steel900: '#1F2D3D',
+
+    customBlue1: '#3c8dbc',
+    customBlue2: '#367fa9',
+    customBlue3: '#1e282c',
+    customBlue4: '#222d32',
+    customBlue5: '#2c3b41',
   },
   get bahDefaultTextColor() {
     return this.bahColors.bluegray700;
+  },
+  get bahDefaultBackgroundColor() {
+    return this.bahColors.gray100;
   },
   /* Form Styles */
   get bahFormInputBorderColor() {
@@ -135,8 +145,68 @@ const theme = {
   get bahTableHeaderBorderColor() {
     return this.bahColors.steel600;
   },
+  /* Paginate Styles */
   get bahPaginateBackgroundColor() {
     return this.bahColors.blue700;
+  },
+  /* Layout Styles */
+  get bahLayoutHeaderBackgroundColor() {
+    return this.bahColors.customBlue1;
+  },
+  get bahLayoutFooterBackgroundColor() {
+    return this.bahColors.gray100;
+  },
+  get bahLayoutNavBackgroundColor() {
+    return this.bahColors.customBlue4;
+  },
+  get bahLayoutNavBoderRightColor() {
+    return this.bahColors.customBlue3;
+  },
+  get bahLayoutArticleBackgroundColor() {
+    return this.bahColors.gray100;
+  },
+  get bahLayoutAsideBackgroundColor() {
+    return this.bahColors.gray100;
+  },
+  /* Sidebar */
+  get bahSidebarItemLabelBgColor() {
+    return this.bahColors.customBlue3;
+  },
+  get bahSidebarItemLabelHoverBgColor() {
+    return this.bahColors.customBlue4;
+  },
+  get bahSidebarItemUlBgColor() {
+    return this.bahColors.customBlue5;
+  },
+  get bahSidebarItemLabelFonteSize() {
+    return '20px';
+  },
+  get bahSidebarFonteSize() {
+    return '18px';
+  },
+  get bahSidebarBgColor() {
+    return this.bahColors.customBlue4;
+  },
+  get bahSidebarItemUlHoverBgColor() {
+    return this.bahColors.customBlue4;
+  },
+  get bahSidebarItemLabelBorderColor() {
+    return this.bahColors.customBlue5;
+  },
+  get bahSidebarItemUlBorderColor() {
+    return this.bahColors.customBlue5;
+  },
+  get bahSidebarItemUlTextColor() {
+    return this.bahColors.white2;
+  },
+  get bahSidebarItemLabelTextColor() {
+    return this.bahColors.white2;
+  },
+  get bahSidebarItemUlBorderSize() {
+    return '0px';
+  },
+  get bahSidebarItemLabelBorderSize() {
+    return '0px';
   },
 
   bahNavDefaultFlexBasis: '16%',
