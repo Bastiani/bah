@@ -1,6 +1,6 @@
 {
   "name": "@rafacdb/bah",
-  "version": "0.5.7",
+  "version": "0.6.8",
   "description": "Components for React",
   "main": "lib/index.js",
   "scripts": {
