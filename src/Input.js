@@ -53,8 +53,8 @@ const InputStyled = styled.div`
   }
 `;
 
-const Input = ({ children, name, type, disabled, ...props }) =>
-  (<InputStyled {...props}>
+const Input = ({ children, name, type, disabled, isValid, isInvalid, ...props }) =>
+  (<InputStyled isValid={isValid} isInvalid={isInvalid}>
     <label htmlFor={name}>
       {children}
     </label>
@@ -97,6 +97,8 @@ InputRedux.defaultProps = {
   type: 'text',
   readOnly: false,
   disabled: false,
+  isValid: false,
+  isInvalid: false,
 };
 
 InputRedux.propTypes = {
@@ -107,6 +109,8 @@ InputRedux.propTypes = {
   type: PropTypes.string,
   readOnly: PropTypes.bool,
   disabled: PropTypes.bool,
+  isValid: PropTypes.bool,
+  isInvalid: PropTypes.bool,
 };
 
 export default Input;
