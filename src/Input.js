@@ -13,7 +13,7 @@ const InputStyled = styled.div`
     height: ${props => props.theme.bahFormInputDefaultHeight};
     padding: ${props => props.theme.bahFormInputDefaultPadding};
     vertical-align: middle;
-    box-shadow:inset 0 2px 3px ${props => props.theme.bahFormInputBoxShadowColor};
+    box-shadow: inset 0 2px 3px ${props => props.theme.bahFormInputBoxShadowColor};
     width: 100%;
     margin-bottom: 10px;
 
@@ -22,12 +22,14 @@ const InputStyled = styled.div`
     }
 
     &:focus {
-      box-shadow:inset 0 2px 3px ${props => props.theme.bahFormInputFocusShadowColor};
+      box-shadow: inset 0 2px 3px ${props => props.theme.bahFormInputFocusShadowColor};
       border-color: ${props => props.theme.bahFormInputFocusBorderColor};
       outline: 0;
     }
 
-    ${props => props.isValid && `
+    ${props =>
+      props.isValid &&
+      `
       box-shadow:inset 0 2px 3px ${props.theme.bahColors.green100};
       border-color: ${props.theme.bahColors.green300};
       outline: 0;
@@ -36,9 +38,9 @@ const InputStyled = styled.div`
         border-color: ${props.theme.bahColors.green400};
         outline: 0;
       }
-    `}
-
-    ${props => props.isInvalid && `
+    `} ${props =>
+        props.isInvalid &&
+        `
       box-shadow:inset 0 2px 3px ${props.theme.bahColors.red100};
       border-color: ${props.theme.bahColors.red300};
       outline: 0;
@@ -47,20 +49,23 @@ const InputStyled = styled.div`
         border-color: ${props.theme.bahColors.red400};
         outline: 0;
       }
-    `}
+    `};
   }
 `;
 
-const Input = ({ children, name, type, disabled, ...props }) => (
-  <InputStyled>
-    <label htmlFor={name}>{children}</label>
+const Input = ({ children, name, type, disabled, ...props }) =>
+  (<InputStyled {...props}>
+    <label htmlFor={name}>
+      {children}
+    </label>
     <input {...props} disabled={disabled} type={type} name={name} />
-  </InputStyled>
-);
+  </InputStyled>);
 
-export const InputRedux = ({ disabled, ...props }) => (
-  <InputStyled>
-    <label htmlFor={props.input.name}>{props.label}</label>
+export const InputRedux = ({ disabled, ...props }) =>
+  (<InputStyled {...props}>
+    <label htmlFor={props.input.name}>
+      {props.label}
+    </label>
     <input
       {...props.input}
       placeholder={props.placeholder}
@@ -68,8 +73,7 @@ export const InputRedux = ({ disabled, ...props }) => (
       type={props.type}
       disabled={disabled}
     />
-  </InputStyled>
-);
+  </InputStyled>);
 
 Input.defaultProps = {
   children: '',
