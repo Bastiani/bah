@@ -80,6 +80,8 @@ Input.defaultProps = {
   name: '',
   type: 'text',
   disabled: false,
+  isValid: false,
+  isInvalid: false,
 };
 
 Input.propTypes = {
@@ -87,6 +89,8 @@ Input.propTypes = {
   name: PropTypes.string,
   type: PropTypes.string,
   disabled: PropTypes.bool,
+  isValid: PropTypes.bool,
+  isInvalid: PropTypes.bool,
 };
 
 InputRedux.defaultProps = {
