@@ -15,7 +15,7 @@ const InputStyled = styled.div`
     vertical-align: middle;
     box-shadow: inset 0 2px 3px ${props => props.theme.bahFormInputBoxShadowColor};
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: ${props => props.theme.bahFormFieldsDefaultMarginBottom};
 
     &:disabled {
       background-color: ${props => props.theme.bahFormInputDisabledColor};
@@ -61,8 +61,8 @@ const Input = ({ children, name, type, disabled, isValid, isInvalid, ...props })
     <input {...props} disabled={disabled} type={type} name={name} />
   </InputStyled>);
 
-export const InputRedux = ({ disabled, ...props }) =>
-  (<InputStyled {...props}>
+export const InputRedux = ({ disabled, isValid, isInvalid, ...props }) =>
+  (<InputStyled isValid={isValid} isInvalid={isInvalid}>
     <label htmlFor={props.input.name}>
       {props.label}
     </label>

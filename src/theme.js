@@ -134,7 +134,9 @@ const theme = {
   },
   bahFormInputDefaultHeight: '24px',
   bahFormInputDefaultPadding: '4px 8px',
+  bahFormInputRadioCheckDefaultPadding: '2px 8px',
   bahFormFieldsDefaultBorder: '4px',
+  bahFormFieldsDefaultMarginBottom: '6px',
   /* Table Styles */
   get bahTableRowColor() {
     return this.bahColors.steel200;
