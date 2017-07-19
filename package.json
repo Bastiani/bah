@@ -1,10 +1,10 @@
 {
   "name": "@rafacdb/bah",
-  "version": "0.8.23",
+  "version": "0.8.24",
   "description": "bah - Components for React",
   "main": "lib/index.js",
   "scripts": {
-    "prepublishOnly": "babel --presets es2015,stage-0,react src -d lib"
+    "prepublishOnly": "babel --presets es2015,stage-1,react src -d lib"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,6 @@
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-1": "^6.24.1"
   }
 }
