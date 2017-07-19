@@ -1,5 +1,5 @@
 {
-  "name": "bah",
+  "name": "@rafacdb/bah",
   "version": "0.8.20",
   "description": "bah - Components for React",
   "main": "lib/index.js",
@@ -10,21 +10,19 @@
     "type": "git",
     "url": "git+https://github.com/Bastiani/bah.git"
   },
-  "keywords": [
-    "react",
-    "components",
-    "reactjs",
-    "ui"
-  ],
-  "author": "Rafael Campos de Bastiani <rafacdb@gmail.com> (https://bastiani.github.io/bah/)",
+  "keywords": ["react", "components", "reactjs", "ui"],
+  "author": "Rafael Campos de Bastiani <rafacdb@gmail.com> (https://bastiani.github.io/bah)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Bastiani/bah/issues"
   },
   "homepage": "https://bastiani.github.io/bah/",
   "dependencies": {
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "redux": "^3.7.2",
+    "styled-components": "^2.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
