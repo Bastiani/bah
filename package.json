@@ -1,7 +1,7 @@
 {
-  "name": "@rafacdb/bah",
-  "version": "0.7.11",
-  "description": "Components for React",
+  "name": "bah",
+  "version": "0.8.20",
+  "description": "bah - Components for React",
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "babel --presets es2015,stage-1,react src -d lib"
@@ -12,26 +12,19 @@
   },
   "keywords": [
     "react",
-    "javascript",
     "components",
-    "tabs",
-    "inputs",
-    "buttons",
-    "layout",
-    "theme"
+    "reactjs",
+    "ui"
   ],
-  "author": "Rafael Campos de Bastiani <rafacdb@gmail.com>",
-  "license": "ISC",
+  "author": "Rafael Campos de Bastiani <rafacdb@gmail.com> (https://bastiani.github.io/bah/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Bastiani/bah/issues"
   },
   "homepage": "https://bastiani.github.io/bah/",
   "dependencies": {
-    "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-redux": "^5.0.5",
-    "redux": "^3.7.1",
-    "styled-components": "^2.1.0"
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
