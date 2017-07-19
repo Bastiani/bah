@@ -1,6 +1,6 @@
 {
   "name": "@rafacdb/bah",
-  "version": "0.8.24",
+  "version": "0.8.25",
   "description": "bah - Components for React",
   "main": "lib/index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
     "redux": "^3.7.2",
     "styled-components": "^2.1.1"
   },
