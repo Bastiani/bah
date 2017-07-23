@@ -8,6 +8,7 @@ export default class TextAreaRedux extends Component {
     super(props);
     this.state = { textareaVal: '' };
   }
+
   render() {
     return (
       <TextAreaStyled
@@ -15,29 +16,29 @@ export default class TextAreaRedux extends Component {
         isInvalid={this.props.isInvalid}
         textSize={this.props.textSize}
       >
+        <label htmlFor={this.props.input.name}>
+          {this.props.label}
+        </label>
         <Button
           buttonLink
           success
           inline
           small
           onClick={() => {
-            const textVal = this.textAreaRedux;
-            const cursorStart = textVal.selectionStart;
-            const cursorEnd = textVal.selectionEnd;
-            const text = this.state.textareaVal;
-            this.setState({
-              textareaVal: `${text.substr(0, cursorStart)}***${text.substr(
-                cursorStart,
-                cursorEnd - cursorStart,
-              )}***${text.substr(cursorEnd)}`,
-            });
+            /* const textVal = this.textAreaRedux;
+                const cursorStart = textVal.selectionStart;
+                const cursorEnd = textVal.selectionEnd;
+                const text = this.state.textareaVal;*/
+            /* this.setState({
+                  textareaVal: `${text.substr(0, cursorStart)}**${text.substr(
+                    cursorStart,
+                    cursorEnd - cursorStart,
+                  )}**${text.substr(cursorEnd)}`,
+                });*/
           }}
         >
           Bold
         </Button>
-        <label htmlFor={this.props.input.name}>
-          {this.props.label}
-        </label>
         <textarea
           {...this.props.input}
           ref={(c) => {
