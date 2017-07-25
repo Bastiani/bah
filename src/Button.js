@@ -4,9 +4,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ButtonStyled = styled.div`
-  ${props => (props.buttonLink ? 'a' : 'button')} {
-    text-decoration: none;
+  ${props =>
+    props.inline
+      ? `
+        display: inline-block;
+        vertical-align: middle;
+    `
+      : 'display: block;'} ${props => (props.buttonLink ? 'a' : 'button')} {
     display: block;
+    text-decoration: none;
     text-align: center;
     cursor: pointer;
     border: none;
@@ -183,6 +189,42 @@ const ButtonStyled = styled.div`
         -moz-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
         box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
     `} ${props =>
+        props.xsmall &&
+        `
+      height: 20px;
+      min-width: 20px;
+      padding-bottom: 27px;
+      padding-left: 8px;
+      padding-right: 8px;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.15);
+      box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.15);
+      font-size: 14px;
+      line-height: 25px;
+      i {
+        line-height: 25px;
+      }
+    `} ${props =>
+        props.xsmall &&
+        `
+        &:active,
+        &:active i {
+          line-height: 25px;
+        }
+    `} ${props =>
+        props.xsmall &&
+        (props.primary ||
+          props.info ||
+          props.success ||
+          props.warning ||
+          props.danger ||
+          props.inverse) &&
+        `
+        -webkit-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
+    `} ${props =>
         props.large &&
         `
         height: 50px;
@@ -248,11 +290,6 @@ const ButtonStyled = styled.div`
         -webkit-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
         -moz-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
         box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
-    `} ${props =>
-        props.inline &&
-        `
-        display: inline-block;
-        vertical-align: middle;
     `} &:disabled {
       background: #606263;
       color: #9ea1a3;
@@ -270,6 +307,7 @@ const Button = ({
   inverse,
   inline,
   small,
+  xsmall,
   large,
   xlarge,
   buttonLink,
@@ -284,6 +322,7 @@ const Button = ({
     inverse={inverse}
     inline={inline}
     small={small}
+    xsmall={xsmall}
     large={large}
     xlarge={xlarge}
     buttonLink={buttonLink}
@@ -307,6 +346,7 @@ Button.defaultProps = {
   inverse: false,
   inline: false,
   small: false,
+  xsmall: false,
   large: false,
   xlarge: false,
   buttonLink: false,
@@ -322,6 +362,7 @@ Button.propTypes = {
   inverse: PropTypes.bool,
   inline: PropTypes.bool,
   small: PropTypes.bool,
+  xsmall: PropTypes.bool,
   large: PropTypes.bool,
   xlarge: PropTypes.bool,
   buttonLink: PropTypes.bool,

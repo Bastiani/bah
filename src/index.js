@@ -11,6 +11,7 @@ import Paginate from './Paginate';
 import TextAreaStyled from './TextAreaStyled';
 import TextArea from './TextArea';
 import TextAreaRedux from './TextAreaRedux';
+import Dialog from './Dialog';
 
 export {
   LayoutAdmin,
@@ -38,4 +39,5 @@ export {
   TextAreaStyled,
   TextArea,
   TextAreaRedux,
+  Dialog,
 };
