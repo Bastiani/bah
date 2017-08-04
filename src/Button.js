@@ -9,6 +9,7 @@ const ButtonStyled = styled.div`
       ? `
         display: inline-block;
         vertical-align: middle;
+        margin-right: 5px;
     `
       : 'display: block;'} ${props => (props.buttonLink ? 'a' : 'button')} {
     display: block;

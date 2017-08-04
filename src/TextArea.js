@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, TextAreaStyled } from './index';
+import { TextAreaStyled } from './index';
 
 export default class TextArea extends Component {
   constructor(props) {
@@ -15,26 +15,6 @@ export default class TextArea extends Component {
         isInvalid={this.props.isInvalid}
         textSize={this.props.textSize}
       >
-        <Button
-          buttonLink
-          success
-          inline
-          small
-          onClick={() => {
-            const textVal = this.textArea;
-            const cursorStart = textVal.selectionStart;
-            const cursorEnd = textVal.selectionEnd;
-            const text = this.state.textareaVal;
-            this.setState({
-              textareaVal: `${text.substr(0, cursorStart)}***${text.substr(
-                cursorStart,
-                cursorEnd - cursorStart,
-              )}***${text.substr(cursorEnd)}`,
-            });
-          }}
-        >
-          Bold
-        </Button>
         <label htmlFor={this.props.name}>
           {this.props.children}
         </label>

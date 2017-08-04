@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button, TextAreaStyled } from './index';
+import If from './operator/if';
 
 export default class TextAreaRedux extends Component {
   constructor(props) {
@@ -48,9 +49,11 @@ export default class TextAreaRedux extends Component {
         <label htmlFor={input.name}>
           {this.props.label}
         </label>
-        <Button buttonLink success inline small onClick={this.formatText}>
-          Bold
-        </Button>
+        <If test={this.props.toolbar}>
+          <Button buttonLink success inline small onClick={this.formatText}>
+            Bold
+          </Button>
+        </If>
         <textarea
           ref={(c) => {
             this.textAreaRedux = c;
@@ -70,6 +73,7 @@ TextAreaRedux.defaultProps = {
   isValid: false,
   isInvalid: false,
   textSize: '16px',
+  toolbar: false,
 };
 
 TextAreaRedux.propTypes = {
@@ -78,4 +82,5 @@ TextAreaRedux.propTypes = {
   isValid: PropTypes.bool,
   isInvalid: PropTypes.bool,
   textSize: PropTypes.string,
+  toolbar: PropTypes.bool,
 };

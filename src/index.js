@@ -12,6 +12,7 @@ import TextAreaStyled from './TextAreaStyled';
 import TextArea from './TextArea';
 import TextAreaRedux from './TextAreaRedux';
 import Dialog from './Dialog';
+import markdown from './markdown';
 
 export {
   LayoutAdmin,
@@ -40,4 +41,5 @@ export {
   TextArea,
   TextAreaRedux,
   Dialog,
+  markdown,
 };
