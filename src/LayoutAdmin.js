@@ -28,14 +28,14 @@ export const Nav = styled.nav`
   background: ${props => props.theme.bahLayoutNavBackgroundColor};
   order: 1;
   ${props =>
-    props.bahHidden
+    (props.bahHidden
       ? `flex: 0 6 0;
         overflow: hidden;
         &:hover {
           flex-basis: 10em;
         }
       `
-      : `flex: 0 6 ${props.theme.bahNavDefaultFlexBasis};`};
+      : `flex: 0 6 ${props.theme.bahNavDefaultFlexBasis};`)};
 
   transition: flex-basis 500ms ease-in-out;
 

@@ -2,7 +2,7 @@ import LayoutAdmin, { Header, Nav, Article, Footer, Aside } from './LayoutAdmin'
 import Sidebar, { SidebarItem } from './Sidebar';
 import Checkbox from './Checkbox';
 import Radio from './Radio';
-import Button, { ButtonA } from './Button';
+import Button from './Button';
 import Input, { InputRedux } from './Input';
 import Tab from './Tab';
 import Table, { TableHeader, TableRow, TableCol } from './Table';
@@ -24,7 +24,6 @@ export {
   Checkbox,
   Radio,
   Button,
-  ButtonA,
   Sidebar,
   SidebarItem,
   Input,

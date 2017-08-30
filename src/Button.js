@@ -5,13 +5,13 @@ import styled from 'styled-components';
 
 const ButtonStyled = styled.div`
   ${props =>
-    props.inline
+    (props.inline
       ? `
         display: inline-block;
         vertical-align: middle;
         margin-right: 5px;
     `
-      : 'display: block;'} ${props => (props.buttonLink ? 'a' : 'button')} {
+      : 'display: block;')} ${props => (props.buttonLink ? 'a' : 'button')} {
     display: block;
     text-decoration: none;
     text-align: center;
@@ -52,7 +52,7 @@ const ButtonStyled = styled.div`
       transform: translateY(2px);
     }
     ${props =>
-      (props.primary ||
+    (props.primary ||
         props.info ||
         props.success ||
         props.warning ||
