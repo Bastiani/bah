@@ -48,7 +48,7 @@ export const SidebarItem = styled.div`
   }
   input:checked ~ ul {
     height: auto;
-    max-height: 200px;
+    max-height: 600px;
     transform: all;
   }
 `;
